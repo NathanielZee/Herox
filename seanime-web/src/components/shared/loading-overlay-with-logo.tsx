@@ -14,7 +14,7 @@ export function LoadingOverlayWithLogo({ refetch, title }: { refetch?: () => voi
             height={180}
             className="animate-pulse"
         />
-        <TextGenerateEffect className="text-lg mt-2 text-[--muted] animate-pulse" words={title ?? "S e a n i m e"} />
+        <TextGenerateEffect className="text-lg mt-2 text-[--muted] animate-pulse" words={title ?? "H e r o x"} />
 
         {(process.env.NEXT_PUBLIC_PLATFORM === "desktop" && !!refetch) && (
             <Button

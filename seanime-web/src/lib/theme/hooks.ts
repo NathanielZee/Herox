@@ -87,7 +87,7 @@ export const THEME_DEFAULT_VALUES: ThemeSettings = {
     smallerEpisodeCarouselSize: false,
     expandSidebarOnHover: false,
     backgroundColor: "#070707",
-    accentColor: "#6152df",
+    accentColor: "#ff914d",
     sidebarBackgroundColor: "#070707",
     hideTopNavbar: false,
     enableMediaCardBlurredBackground: false,
@@ -169,6 +169,11 @@ export function useThemeSettings(): ThemeSettingsHook {
 }
 
 function getThemeValue(key: string, settings: ThemeSettings | undefined | null): any {
+    // ✅ Force orange accentColor
+    if (key === "accentColor") {
+        return "#ff914d";
+    }
+
     if (!settings) {
         // @ts-ignore
         return THEME_DEFAULT_VALUES[key]

@@ -1,7 +1,9 @@
+
 import { TauriManager } from "@/app/(main)/_tauri/tauri-manager"
 import { ClientProviders } from "@/app/client-providers"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
+import Script from "next/script"
 import "./globals.css"
 import React from "react"
 
@@ -22,9 +24,24 @@ export default function RootLayout({ children }: {
 }) {
     return (
         <html lang="en" suppressHydrationWarning>
-        {/*<head>*/}
-        {/*    {process.env.NODE_ENV === "development" && <script src="https://unpkg.com/react-scan/dist/auto.global.js" async></script>}*/}
-        {/*</head>*/}
+        <head>
+            {/* ✅ Google Analytics */}
+            <Script
+                strategy="afterInteractive"
+                src="https://www.googletagmanager.com/gtag/js?id=G-80HXY8F3LG"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+                {`
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', 'G-80HXY8F3LG');
+                `}
+            </Script>
+            <link rel="icon" href="/icons/favicon1.ico" type="image/x-icon" />
+            <link rel="shortcut icon" href="/icons/favicon1.ico" type="image/x-icon" />
+            {/*{process.env.NODE_ENV === "development" && <script src="https://unpkg.com/react-scan/dist/auto.global.js" async></script>}*/}
+        </head>
         <body className={inter.className} suppressHydrationWarning>
         {/*{process.env.NODE_ENV === "development" && <script src="http://localhost:8097"></script>}*/}
         <ClientProviders>
@@ -35,5 +52,3 @@ export default function RootLayout({ children }: {
         </html>
     )
 }
-
-

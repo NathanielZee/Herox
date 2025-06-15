@@ -19,6 +19,23 @@ import React from "react"
 
 export const dynamic = "force-static"
 
+// Metadata for SEO
+export const metadata = {
+    title: "The best site to watch anime online for Free - Herox",
+    description: "Watch your favorite anime for free on Herox. HD quality, no ads, fast streaming.",
+    openGraph: {
+        title: "The best site to watch anime online for Free - Herox",
+        description: "Watch your favorite anime for free on Herox. HD quality, no ads, fast streaming.",
+        url: "https://www.herox.cc",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "The best site to watch anime online for Free - Herox",
+        description: "Watch your favorite anime for free on Herox.",
+    },
+}
+
 export default function Library() {
 
     const {

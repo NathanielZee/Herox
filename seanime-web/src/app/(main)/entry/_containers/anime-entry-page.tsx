@@ -70,7 +70,7 @@ export function AnimeEntryPage() {
     React.useEffect(() => {
         try {
             if (animeEntry?.media?.title?.userPreferred) {
-                document.title = `${animeEntry?.media?.title?.userPreferred} | Seanime`
+                document.title = `${animeEntry?.media?.title?.userPreferred} | Herox`
             }
         }
         catch {

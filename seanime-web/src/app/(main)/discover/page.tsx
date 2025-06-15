@@ -21,6 +21,22 @@ import { FaSearch } from "react-icons/fa"
 
 export const dynamic = "force-static"
 
+// Metadata for SEO
+export const metadata = {
+    title: "Discover Trending Anime This Season - Herox",
+    description: "Explore trending anime, highest rated shows, upcoming releases, and more—all in one place on Herox.",
+    openGraph: {
+        title: "Discover Trending Anime This Season - Herox",
+        description: "Explore trending anime, highest rated shows, upcoming releases, and more—all in one place on Herox.",
+        url: "https://www.herox.cc/discover",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Discover Trending Anime This Season - Herox",
+        description: "Find the hottest anime right now and what's coming soon on Herox.",
+    },
+}
 
 export default function Page() {
 
@@ -36,9 +52,25 @@ export default function Page() {
         }
     }, [searchParams])
 
+    // Load CommonNinja script for notifications
+    React.useEffect(() => {
+        // Only load the CommonNinja script once
+        const scriptId = "commonninja-script";
+        if (!document.getElementById(scriptId)) {
+            const script = document.createElement("script");
+            script.src = "https://cdn.commoninja.com/sdk/latest/commonninja.js";
+            script.defer = true;
+            script.id = scriptId;
+            document.body.appendChild(script);
+        }
+    }, []);
+
     return (
         <>
             <DiscoverPageHeader />
+            <div className="my-4 flex justify-center">
+                <div className="commonninja_component pid-200b6530-eafa-4208-a039-3c8c1e1c1e2d"></div>
+            </div>
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
